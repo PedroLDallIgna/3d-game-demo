@@ -1,0 +1,246 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdbm7p16log05"]
+
+[ext_resource type="Script" path="res://modelos/propsDiversos/dia_noite.gd" id="1_1ksnu"]
+[ext_resource type="Sky" uid="uid://dq6jehcildox6" path="res://Materiais/shaders/ceuDia.tres" id="2_wuoa8"]
+[ext_resource type="Sky" uid="uid://bqyg3x2m3u2d0" path="res://Materiais/shaders/ceuNoite.tres" id="3_gowyv"]
+
+[sub_resource type="Animation" id="Animation_bp14o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_volumetric_fog_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../lua:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../lua:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../WorldEnvironment:environment:sky")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wuoa8")]
+}
+
+[sub_resource type="Animation" id="Animation_1tv3r"]
+resource_name = "dayNightCycle"
+length = 120.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 120),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.26667, 59, 61),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:light_volumetric_fog_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 59, 61),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.8, 0.0, 0.0, 1.8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../lua:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 62, 120),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3.14159, 0, 0), Vector3(6.28319, 0, 0), Vector3(6.28319, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../lua:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 59, 61),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.15, 0.15, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4, 56, 61),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../WorldEnvironment:environment:sky")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 59, 61),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_wuoa8"), ExtResource("3_gowyv"), ExtResource("3_gowyv"), ExtResource("2_wuoa8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m0gsg"]
+_data = {
+"RESET": SubResource("Animation_bp14o"),
+"dayNightCycle": SubResource("Animation_1tv3r")
+}
+
+[sub_resource type="Environment" id="Environment_cd35g"]
+background_mode = 2
+sky = ExtResource("2_wuoa8")
+ambient_light_sky_contribution = 0.61
+ssr_enabled = true
+ssr_max_steps = 254
+ssr_depth_tolerance = 128.0
+ssao_enabled = true
+ssao_radius = 16.0
+ssil_radius = 16.0
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.05
+glow_blend_mode = 0
+fog_light_energy = 0.5
+fog_sky_affect = 0.0
+fog_depth_curve = 3.86375
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+volumetric_fog_length = 1024.0
+volumetric_fog_temporal_reprojection_enabled = false
+volumetric_fog_temporal_reprojection_amount = 0.99
+adjustment_enabled = true
+adjustment_brightness = 0.85
+
+[node name="DiaNoite" type="Node3D"]
+script = ExtResource("1_1ksnu")
+
+[node name="AninDayNight" type="AnimationPlayer" parent="."]
+root_node = NodePath("../sol")
+libraries = {
+"": SubResource("AnimationLibrary_m0gsg")
+}
+speed_scale = 0.5
+
+[node name="sol" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.70079, 0)
+light_color = Color(1, 1, 0.807843, 1)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_transmittance_bias = 16.0
+shadow_opacity = 0.92
+shadow_blur = 0.5
+directional_shadow_max_distance = 300.0
+
+[node name="lua" type="DirectionalLight3D" parent="."]
+light_color = Color(0.65098, 1, 1, 1)
+light_energy = 0.15
+shadow_enabled = true
+shadow_transmittance_bias = 16.0
+shadow_opacity = 0.92
+shadow_blur = 0.5
+directional_shadow_max_distance = 300.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cd35g")

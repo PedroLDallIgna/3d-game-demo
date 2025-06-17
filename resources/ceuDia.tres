@@ -1,0 +1,123 @@
+[gd_resource type="Sky" load_steps=4 format=3 uid="uid://dq6jehcildox6"]
+
+[ext_resource type="Texture2D" uid="uid://begowuegpokg7" path="res://resources/skyboxImagem.jpeg" id="1_hpphd"]
+
+[sub_resource type="Shader" id="Shader_oyqve"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable.mono's PhysicalSkyMaterial and enhanced for a more realistic sun.
+
+shader_type sky;
+render_mode use_half_res_pass;
+
+uniform float rayleigh : hint_range(0, 64) = 2.0;
+uniform vec4 rayleigh_color : source_color = vec4(0.3, 0.405, 0.6, 1.0);
+uniform float mie : hint_range(0, 1) = 0.005;
+uniform float mie_eccentricity : hint_range(-1, 1) = 0.8;
+uniform vec4 mie_color : source_color = vec4(0.69, 0.729, 0.812, 1.0);
+
+uniform float turbidity : hint_range(0, 1000) = 10.0;
+uniform float sun_disk_scale : hint_range(0, 360) = 1.0;
+uniform vec4 ground_color : source_color = vec4(0.1, 0.07, 0.034, 1.0);
+uniform float exposure : hint_range(0, 128) = 1.0;
+
+// Novos uniformes para melhorar o sol
+uniform float glow_intensity : hint_range(0.0, 1.0) = 0.1; // Intensidade do brilho ao redor do sol
+uniform float glow_k : hint_range(0.0, 100.0) = 10.0; // Controle da extensão do brilho
+uniform float sun_enlargement : hint_range(0.0, 1.0) = 0.2; // Fator de aumento do tamanho do sol perto do horizonte
+uniform vec3 sun_red_color : source_color = vec3(1.0, 0.3, 0.1); // Cor avermelhada para o sol no horizonte
+
+uniform sampler2D night_sky : filter_nearest, source_color, hint_default_black;
+uniform sampler2D stars_texture : filter_nearest, source_color, hint_default_black;
+
+uniform float move_speed : hint_range(0.0, 5.0) = 0.1;
+
+const vec3 UP = vec3(0.0, 1.0, 0.0);
+const float rayleigh_zenith_size = 8.4e3;
+const float mie_zenith_size = 1.25e3;
+
+float henyey_greenstein(float cos_theta, float g) {
+    const float k = 0.0795774715459;
+    return k * (1.0 - g * g) / (pow(1.0 + g * g - 2.0 * g * cos_theta, 1.5));
+}
+
+void sky() {
+    vec2 night_sky_coords = SKY_COORDS.xy + vec2(TIME * move_speed, 0.0);
+
+    if (LIGHT0_ENABLED) {
+        float zenith_angle = clamp(dot(UP, normalize(LIGHT0_DIRECTION)), -1.0, 1.0);
+        float sun_energy = max(0.0, 1.0 - exp(-((PI * 0.5) - acos(zenith_angle)))) * LIGHT0_ENERGY;
+        float sun_fade = 1.0 - clamp(1.0 - exp(LIGHT0_DIRECTION.y), 0.0, 1.0);
+
+        float rayleigh_coefficient = rayleigh - (1.0 * (1.0 - sun_fade));
+        vec3 rayleigh_beta = rayleigh_coefficient * rayleigh_color.rgb * 0.0001;
+        vec3 mie_beta = turbidity * mie * mie_color.rgb * 0.000434;
+
+        float zenith = acos(max(0.0, dot(UP, EYEDIR)));
+        float optical_mass = 1.0 / (cos(zenith) + 0.15 * pow(93.885 - degrees(zenith), -1.253));
+        float rayleigh_scatter = rayleigh_zenith_size * optical_mass;
+        float mie_scatter = mie_zenith_size * optical_mass;
+
+        vec3 extinction = exp(-(rayleigh_beta * rayleigh_scatter + mie_beta * mie_scatter));
+
+        float cos_theta = dot(EYEDIR, normalize(LIGHT0_DIRECTION));
+        float rayleigh_phase = (3.0 / (16.0 * PI)) * (1.0 + pow(cos_theta * 0.5 + 0.5, 2.0));
+        vec3 betaRTheta = rayleigh_beta * rayleigh_phase;
+
+        float mie_phase = henyey_greenstein(cos_theta, mie_eccentricity);
+        vec3 betaMTheta = mie_beta * mie_phase;
+
+        vec3 Lin = pow(sun_energy * ((betaRTheta + betaMTheta) / (rayleigh_beta + mie_beta)) * (1.0 - extinction), vec3(1.5));
+        Lin *= mix(vec3(1.0), pow(sun_energy * ((betaRTheta + betaMTheta) / (rayleigh_beta + mie_beta)) * extinction, vec3(0.5)), clamp(pow(1.0 - zenith_angle, 5.0), 0.0, 1.0));
+        Lin *= mix(ground_color.rgb, vec3(1.0), smoothstep(-0.1, 0.1, dot(UP, EYEDIR)));
+
+        // Ajuste do tamanho do disco solar baseado na posição do horizonte
+        float effective_sun_disk_scale = sun_disk_scale * (1.0 + sun_enlargement * (1.0 - sun_fade));
+        float sunAngularDiameterCos = cos(LIGHT0_SIZE * effective_sun_disk_scale);
+        float sunAngularDiameterCos2 = cos(LIGHT0_SIZE * effective_sun_disk_scale * 0.5);
+
+        // Disco solar com transição suave
+        float sundisk = smoothstep(sunAngularDiameterCos, sunAngularDiameterCos2, cos_theta);
+
+        // Cor do sol ajustada para ficar avermelhada perto do horizonte
+        vec3 sun_color = mix(sun_red_color, LIGHT0_COLOR, sun_fade);
+
+        vec3 L0 = (sun_energy * extinction) * sundisk * sun_color;
+
+        // Adiciona o efeito de brilho ao redor do sol
+        float glow = glow_intensity / (1.0 + glow_k * (1.0 - cos_theta));
+        L0 += glow * sun_color * extinction;
+
+        L0 += texture(night_sky, night_sky_coords).xyz * extinction;
+        vec3 stars = texture(stars_texture, night_sky_coords).xyz;
+        L0 += stars * (1.0 - extinction);
+
+        vec3 color = Lin + L0;
+        COLOR = pow(color, vec3(1.0 / (1.2 + (1.2 * sun_fade))));
+        COLOR *= exposure;
+    } else {
+        vec3 night_sky_color = texture(night_sky, night_sky_coords).rgb;
+        vec3 stars = texture(stars_texture, night_sky_coords).xyz;
+        COLOR = night_sky_color + stars;
+        COLOR *= exposure;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm5yi"]
+shader = SubResource("Shader_oyqve")
+shader_parameter/rayleigh = 0.0
+shader_parameter/rayleigh_color = Color(0.3, 0.405, 0.6, 1)
+shader_parameter/mie = 0.015
+shader_parameter/mie_eccentricity = 0.99
+shader_parameter/mie_color = Color(0.69, 0.729, 0.812, 1)
+shader_parameter/turbidity = 30.0
+shader_parameter/sun_disk_scale = 1.0
+shader_parameter/ground_color = Color(0.1, 0.07, 0.034, 1)
+shader_parameter/exposure = 1.0
+shader_parameter/glow_intensity = 1.0
+shader_parameter/glow_k = 100.0
+shader_parameter/sun_enlargement = 0.2
+shader_parameter/sun_red_color = Color(1, 0.3, 0.1, 1)
+shader_parameter/night_sky = ExtResource("1_hpphd")
+shader_parameter/move_speed = 0.002
+
+[resource]
+sky_material = SubResource("ShaderMaterial_sm5yi")
