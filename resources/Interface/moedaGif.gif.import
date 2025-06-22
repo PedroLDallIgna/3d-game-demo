@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://cj2rq3ejbakef"
+path="res://.godot/imported/moedaGif.gif-4f45dcfddb307475a824c6bef1cb4ab2.tres"
+
+[deps]
+
+source_file="res://resources/Interface/moedaGif.gif"
+dest_files=["res://.godot/imported/moedaGif.gif-4f45dcfddb307475a824c6bef1cb4ab2.tres"]
+
+[params]
+

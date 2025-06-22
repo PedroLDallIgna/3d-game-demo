@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name Enemy
+class_name Enemy2
 
 var player: CharacterBody3D
 var idle: bool = true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://0qw8mt0sfhnx"
+path="res://.godot/imported/pixel-heart.gif-811bb791e6355326db086caf09172a37.tres"
+
+[deps]
+
+source_file="res://resources/Interface/pixel-heart.gif"
+dest_files=["res://.godot/imported/pixel-heart.gif-811bb791e6355326db086caf09172a37.tres"]
+
+[params]
+

@@ -9,7 +9,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	rotate_y(deg_to_rad(rotate_speed * delta))
 
-
 func _on_body_entered(body: Node3D) -> void:
 	if(body.is_in_group("player")):
+		body.collect_coins(2)
 		queue_free()

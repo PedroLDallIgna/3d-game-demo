@@ -1,3 +1,3 @@
 extends Node
 
-var global_player: CharacterBody3D
+var global_player: Player

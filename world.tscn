@@ -41,6 +41,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6069, 4.14466, 11.696)
 [node name="coin" parent="." instance=ExtResource("2_fj7yv")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -3.63419, 4.82428, 5.39068)
 
+[node name="coin2" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -2.59133, 3.8927, -0.302181)
+
+[node name="coin3" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.00638, 3.8927, -0.302181)
+
+[node name="coin4" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 8.96073, 3.8927, -5.14938)
+
+[node name="coin5" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 11.767, 3.85044, -5.14938)
+
+[node name="coin6" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 6.50793, 3.85044, -1.50607)
+
+[node name="coin7" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 14.0325, 3.86016, -1.50607)
+
+[node name="coin8" parent="." instance=ExtResource("2_fj7yv")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 16.5209, 3.86016, -5.41965)
+
 [node name="DiaNoite" type="Node3D" parent="."]
 
 [node name="sol" type="DirectionalLight3D" parent="DiaNoite"]
@@ -58,6 +79,15 @@ environment = SubResource("Environment_aqk2v")
 
 [node name="BeetlebotSkin" parent="." instance=ExtResource("4_036b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8149, 3.61487, -3.27438)
+
+[node name="BeetlebotSkin2" parent="." instance=ExtResource("4_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2546, 3.61487, -0.980342)
+
+[node name="BeetlebotSkin3" parent="." instance=ExtResource("4_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5662, 3.61487, 2.48421)
+
+[node name="BeetlebotSkin4" parent="." instance=ExtResource("4_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89195, 1.59943, -5.02295)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_dwbse")

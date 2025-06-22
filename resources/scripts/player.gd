@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-class_name Player
+class_name Player2
 
 @export_category("Movement")
 @export var SPEED: float = 10.0

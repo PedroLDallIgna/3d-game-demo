@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+class_name Player
+
 @export_category("Movement")
 @export var SPEED: float = 5.0
 @export var RUN_SPEED: float = 18.0
@@ -18,6 +20,11 @@ var current_speed = SPEED
 @onready var blink_timer = %BlinkTimer
 @onready var closed_eyes_timer = %ClosedEyesTimer
 @onready var eye_mat = $mesh/rig/Skeleton3D/Sophia.get("surface_material_override/2")
+
+var knockbacked: bool = false
+@export var coins: int = 0
+@onready var coin_amount: Label = $Interface/CoinContainer/coinAmount
+@export var Health: int = 5
 
 func _physics_process(delta: float) -> void:
 	if(velocity == Vector3.ZERO):
@@ -65,7 +72,7 @@ func _physics_process(delta: float) -> void:
 
 func _ready():
 	Globals.global_player = self
-	
+	coin_amount.text = str(coins)
 	_setup_animation_blends()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -79,6 +86,10 @@ func _ready():
 		eye_mat.set("uv1_offset", Vector3.ZERO)
 		blink_timer.start(randf_range(1.0, 4.0))
 		)
+		
+func collect_coins(quant: int):
+	coins += quant
+	coin_amount.text = str(coins)
 
 func set_blink(state : bool):
 	if blink == state: return
@@ -89,9 +100,27 @@ func set_blink(state : bool):
 		blink_timer.stop()
 		closed_eyes_timer.stop()
 		
+func knockback(impact_point: Vector3, force: Vector3):
+	force.y = abs(force.y)
+	velocity = force.limit_length(15.0)
+		
 func _setup_animation_blends() -> void:
 	var anims = ["Idle", "Run", "Jump", "Fall"]
 	for from_anim in anims:
 		for to_anim in anims:
 			if from_anim != to_anim:
 				animation_player.set_blend_time(from_anim, to_anim, 0.2)
+
+func _on_damage_attack_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("enemy")):
+		var body_collision = (body.global_position - global_position)
+		var force = -body_collision
+		force *= 10.0
+		knockback(body_collision, force)
+		body.HEALTH -= 1
+		knockbacked = true
+		await get_tree().create_timer(0.3).timeout
+		knockbacked = false
+		if(body.HEALTH <= 1):
+			collect_coins(10)
+			body.queue_free()
