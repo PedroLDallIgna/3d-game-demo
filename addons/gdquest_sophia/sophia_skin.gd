@@ -64,6 +64,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _ready():
+	Globals.global_player = self
+	
 	_setup_animation_blends()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
