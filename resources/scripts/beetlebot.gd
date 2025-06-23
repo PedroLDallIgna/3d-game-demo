@@ -2,20 +2,21 @@ extends CharacterBody3D
 
 class_name Enemy
 
-@export var HEALTH = 2
+@export var HEALTH: int = 4
 @export var SPEED = 180.0
 @export var CHASE_RANGE = 8.0
-@export var ATTACK_RANGE = 2.0
+@export var ATTACK_RANGE = 1.2
 @export var JUMP_VELOCITY = 4.5
 
-var target: CharacterBody3D
+@export var dano: int = 1
+
+var target: Player
 @onready var navigation_3d: NavigationAgent3D = $Navigation3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine
 
 func _ready() -> void:
 	target = Globals.global_player
-	
 	state_machine = animation_tree.get("parameters/StateMachine/playback")
 
 func _physics_process(delta: float) -> void:
@@ -47,3 +48,7 @@ func chase_player():
 	
 func attack_player():
 	return global_position.distance_to(target.global_position) < ATTACK_RANGE
+
+func apply_damage(dano: int):
+	if(attack_player()):
+		target.update_health(dano)

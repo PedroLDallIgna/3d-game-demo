@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://prh35jb6tjtd"]
+[gd_scene load_steps=15 format=3 uid="uid://prh35jb6tjtd"]
 
 [ext_resource type="PackedScene" uid="uid://16iu10wxub40" path="res://addons/gdquest_sophia/model/sophia.glb" id="1_e4pev"]
 [ext_resource type="Script" uid="uid://b03canb6el077" path="res://addons/gdquest_sophia/sophia_skin.gd" id="1_obcib"]
@@ -13,13 +13,32 @@ radius = 0.39596
 height = 1.58621
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ucn8o"]
-size = Vector3(0.639614, 1.66591, 0.498586)
+size = Vector3(0.513907, 0.180123, 0.498586)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vw4pm"]
 font = ExtResource("6_vw4pm")
 font_size = 30
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.333333)
+
+[sub_resource type="Gradient" id="Gradient_ir40m"]
+offsets = PackedFloat32Array(0, 0.989362)
+colors = PackedColorArray(0, 0, 0, 0.239216, 0.207843, 0.207843, 0.207843, 0.658824)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w7ctv"]
+noise_type = 5
+frequency = 0.1585
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rfnl"]
+color_ramp = SubResource("Gradient_ir40m")
+noise = SubResource("FastNoiseLite_w7ctv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s01ky"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
 
 [node name="SophiaSkin" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_obcib")
@@ -173,7 +192,7 @@ shape = SubResource("CapsuleShape3D_ucn8o")
 collision_layer = 136
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="damage_attack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115925, 0.821234, 0.050618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787741, 0.0783405, 0.050618)
 shape = SubResource("BoxShape3D_ucn8o")
 
 [node name="Interface" type="Control" parent="."]
@@ -223,6 +242,50 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "5"
 label_settings = SubResource("LabelSettings_vw4pm")
+
+[node name="telaDerrota" type="TextureRect" parent="Interface"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_3rfnl")
+
+[node name="btnContainer" type="VBoxContainer" parent="Interface/telaDerrota"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="btnRecomecar" type="Button" parent="Interface/telaDerrota/btnContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.899555, 0.897911, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_vw4pm")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s01ky")
+text = "recomecar"
+
+[node name="btnMenu" type="Button" parent="Interface/telaDerrota/btnContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.899555, 0.897911, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_vw4pm")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_s01ky")
+text = "voltar ao menu"
 
 [connection signal="body_entered" from="damage_attack" to="." method="_on_damage_attack_body_entered"]
 

@@ -25,6 +25,7 @@ var knockbacked: bool = false
 @export var coins: int = 0
 @onready var coin_amount: Label = $Interface/CoinContainer/coinAmount
 @export var Health: int = 5
+@onready var health_amount: Label = $Interface/HealthContainer/healthAmount
 
 func _physics_process(delta: float) -> void:
 	if(velocity == Vector3.ZERO):
@@ -48,8 +49,6 @@ func _physics_process(delta: float) -> void:
 		
 		if(not velocity == Vector3.ZERO and is_on_floor()):
 			animation_player.play("Run")
-		
-		#animation_player.play("Run")
 		
 		# Cria um Transform3D temporário
 		var temp_transform = Transform3D(Basis(), global_transform.origin)
@@ -90,6 +89,14 @@ func _ready():
 func collect_coins(quant: int):
 	coins += quant
 	coin_amount.text = str(coins)
+	
+func update_health(dano: int):
+	Health -= dano
+	health_amount.text = str(Health)
+	if(Health <= 0):
+		await get_tree().create_timer(0.8).timeout
+		$Interface/telaDerrota.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_blink(state : bool):
 	if blink == state: return
@@ -111,13 +118,13 @@ func _setup_animation_blends() -> void:
 			if from_anim != to_anim:
 				animation_player.set_blend_time(from_anim, to_anim, 0.2)
 
-func _on_damage_attack_body_entered(body: Node3D) -> void:
+func _on_damage_attack_body_entered(body: Enemy) -> void:
 	if(body.is_in_group("enemy")):
 		var body_collision = (body.global_position - global_position)
 		var force = -body_collision
 		force *= 10.0
 		knockback(body_collision, force)
-		body.HEALTH -= 1
+		body.HEALTH = body.HEALTH - 1
 		knockbacked = true
 		await get_tree().create_timer(0.3).timeout
 		knockbacked = false
