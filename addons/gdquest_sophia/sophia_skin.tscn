@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://dye01l0ct4fby" path="res://addons/gdquest_sophia/model/materials/eye_mat_override.tres" id="4_mms51"]
 [ext_resource type="Script" uid="uid://cu52yli6eidjn" path="res://resources/scripts/camera.gd" id="4_ucn8o"]
 [ext_resource type="Texture2D" uid="uid://cj2rq3ejbakef" path="res://resources/Interface/moedaGif.gif" id="5_m61dc"]
+[ext_resource type="Script" uid="uid://dwlewse6xp261" path="res://resources/scripts/interface.gd" id="5_w7ctv"]
 [ext_resource type="FontFile" uid="uid://b51pl0hut3qm4" path="res://resources/Interface/Daydream.ttf" id="6_vw4pm"]
 [ext_resource type="Texture2D" uid="uid://0qw8mt0sfhnx" path="res://resources/Interface/pixel-heart.gif" id="7_ir40m"]
 
@@ -22,16 +23,10 @@ shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.333333)
 
 [sub_resource type="Gradient" id="Gradient_ir40m"]
-offsets = PackedFloat32Array(0, 0.989362)
-colors = PackedColorArray(0, 0, 0, 0.239216, 0.207843, 0.207843, 0.207843, 0.658824)
+colors = PackedColorArray(0.152941, 0.152941, 0.152941, 0.584314, 0.243137, 0.243137, 0.243137, 0.584314)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_w7ctv"]
-noise_type = 5
-frequency = 0.1585
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3rfnl"]
-color_ramp = SubResource("Gradient_ir40m")
-noise = SubResource("FastNoiseLite_w7ctv")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w7ctv"]
+gradient = SubResource("Gradient_ir40m")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s01ky"]
 content_margin_left = 10.0
@@ -196,21 +191,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787741, 0.0783405, 0.0506
 shape = SubResource("BoxShape3D_ucn8o")
 
 [node name="Interface" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_w7ctv")
 
 [node name="CoinContainer" type="HBoxContainer" parent="Interface"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -163.0
+offset_left = -200.095
 offset_top = 20.0
-offset_right = -23.0
+offset_right = -46.095
 offset_bottom = 90.0
 grow_horizontal = 0
 
@@ -251,7 +248,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_3rfnl")
+texture = SubResource("GradientTexture1D_w7ctv")
 
 [node name="btnContainer" type="VBoxContainer" parent="Interface/telaDerrota"]
 layout_mode = 1
@@ -271,22 +268,28 @@ alignment = 1
 
 [node name="btnRecomecar" type="Button" parent="Interface/telaDerrota/btnContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.899555, 0.897911, 0, 1)
+theme_override_colors/font_hover_color = Color(0.990481, 1, 0.753716, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_vw4pm")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_s01ky")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s01ky")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s01ky")
 text = "recomecar"
 
 [node name="btnMenu" type="Button" parent="Interface/telaDerrota/btnContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.899555, 0.897911, 0, 1)
+theme_override_colors/font_hover_color = Color(0.990481, 1, 0.753716, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_vw4pm")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_s01ky")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s01ky")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s01ky")
 text = "voltar ao menu"
 
 [connection signal="body_entered" from="damage_attack" to="." method="_on_damage_attack_body_entered"]
+[connection signal="pressed" from="Interface/telaDerrota/btnContainer/btnRecomecar" to="Interface" method="_on_btn_recomecar_pressed"]
+[connection signal="pressed" from="Interface/telaDerrota/btnContainer/btnMenu" to="Interface" method="_on_btn_menu_pressed"]
 
 [editable path="mesh"]

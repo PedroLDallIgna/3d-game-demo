@@ -94,7 +94,8 @@ func update_health(dano: int):
 	Health -= dano
 	health_amount.text = str(Health)
 	if(Health <= 0):
-		await get_tree().create_timer(0.8).timeout
+		get_tree().paused = true
+		await get_tree().create_timer(0.4).timeout
 		$Interface/telaDerrota.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
