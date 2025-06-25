@@ -46,9 +46,8 @@ shadow_mesh = SubResource("ArrayMesh_46asu")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qo34"]
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.982775, 0.940342, 0, 1)
-metallic_specular = 1.0
-roughness = 0.0
+albedo_color = Color(1, 1, 0, 1)
+roughness = 0.2
 texture_filter = 2
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2qo34"]

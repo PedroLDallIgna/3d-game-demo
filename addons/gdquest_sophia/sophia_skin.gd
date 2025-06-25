@@ -27,6 +27,9 @@ var knockbacked: bool = false
 @export var Health: int = 5
 @onready var health_amount: Label = $Interface/HealthContainer/healthAmount
 
+@onready var interface_morte: Control = $Interface/telaDerrota
+
+
 func _physics_process(delta: float) -> void:
 	if(velocity == Vector3.ZERO):
 		animation_player.play("Idle")
@@ -96,7 +99,7 @@ func update_health(dano: int):
 	if(Health <= 0):
 		get_tree().paused = true
 		await get_tree().create_timer(0.4).timeout
-		$Interface/telaDerrota.visible = true
+		interface_morte.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_blink(state : bool):

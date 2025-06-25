@@ -17,4 +17,4 @@ func _on_btn_recomecar_pressed() -> void:
 
 
 func _on_btn_menu_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
