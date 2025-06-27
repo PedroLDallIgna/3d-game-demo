@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b8pb733udb6th"]
 
-[ext_resource type="Script" uid="uid://bwewdqdo6yye" path="res://resources/scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Script" path="res://resources/scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dm5c7r1rn2fgu" path="res://resources/Interface/Gemini_Generated_Image_db4m8qdb4m8qdb4m.png" id="2_1ehe0"]
 [ext_resource type="FontFile" uid="uid://b51pl0hut3qm4" path="res://resources/Interface/Daydream.ttf" id="2_48xlc"]
-[ext_resource type="Texture2D" uid="uid://bnbvi3ovdsegt" path="res://resources/360_F_1161676890_rbQDQTpzoVWEM6JT32K8ePdmU0uhwU9n.jpg" id="3_1ehe0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
 content_margin_left = 30.0
@@ -37,9 +37,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.99998
+offset_top = -140.0
+offset_right = -72.54
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1ehe0")
+scale = Vector2(1.535, 1.535)
+texture = ExtResource("2_1ehe0")
 
 [node name="conteinerNiveis" type="Panel" parent="."]
 layout_mode = 1

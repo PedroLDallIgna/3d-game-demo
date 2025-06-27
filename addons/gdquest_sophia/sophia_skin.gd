@@ -126,12 +126,13 @@ func _on_damage_attack_body_entered(body: Enemy) -> void:
 	if(body.is_in_group("enemy")):
 		var body_collision = (body.global_position - global_position)
 		var force = -body_collision
-		force *= 10.0
+		force *= 15.0
 		knockback(body_collision, force)
 		body.HEALTH = body.HEALTH - 1
 		knockbacked = true
 		await get_tree().create_timer(0.3).timeout
 		knockbacked = false
-		if(body.HEALTH <= 1):
+		if(body.HEALTH <= 0):
 			collect_coins(10)
+			await get_tree().create_timer(1.0).timeout
 			body.queue_free()

@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://motek6yon8c4"]
+[gd_scene load_steps=12 format=3 uid="uid://motek6yon8c4"]
 
-[ext_resource type="Script" uid="uid://c0d52a46qlbr7" path="res://world.gd" id="1_dwbse"]
+[ext_resource type="Script" path="res://world.gd" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://addons/gdquest_sophia/sophia_skin.tscn" id="1_f3sb7"]
 [ext_resource type="MeshLibrary" uid="uid://ddgpk5eqrufrt" path="res://Scenes/meshLibary2.tres" id="2_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://iyv2fnf2u71r" path="res://Scenes/coin.tscn" id="2_fj7yv"]
 [ext_resource type="Sky" uid="uid://dq6jehcildox6" path="res://resources/ceuDia.tres" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bpjqcswabdtyb" path="res://addons/gdquest_beetle_bot/beetlebot_skin.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dvcr7twmcc6qv" path="res://Scenes/collision_fall.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://dlm47wj8d4ads" path="res://resources/Models/stones.glb" id="8_ioo17"]
+[ext_resource type="PackedScene" uid="uid://c5p188q150v7x" path="res://Scenes/trap_spike.tscn" id="9_wse8f"]
 
 [sub_resource type="Environment" id="Environment_aqk2v"]
 background_mode = 2
@@ -108,6 +110,12 @@ metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="collisionFall" parent="." instance=ExtResource("7_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6069, -9.41639, 11.696)
+
+[node name="stones2" parent="." instance=ExtResource("8_ioo17")]
+transform = Transform3D(1.86813, 0, 0, 0, 1.86813, 0, 0, 0, 1.86813, 16.3569, 3.4114, 13.0326)
+
+[node name="trap-spikes-large2" parent="." instance=ExtResource("9_wse8f")]
+transform = Transform3D(1.79316, 0, 0, 0, 1.79316, 0, 0, 0, 1.79316, 14.9568, 3.3663, 16.5726)
 
 [connection signal="body_entered" from="collisionFall" to="." method="_on_collision_fall_body_entered"]
 

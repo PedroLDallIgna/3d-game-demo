@@ -47,6 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_46asu")
 cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 0, 1)
+metallic_specular = 1.0
 roughness = 0.2
 texture_filter = 2
 

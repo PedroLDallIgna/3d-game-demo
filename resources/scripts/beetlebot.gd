@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name Enemy
 
-@export var HEALTH: int = 4
+@export var HEALTH: int = 3
 @export var SPEED = 180.0
 @export var CHASE_RANGE = 8.0
 @export var ATTACK_RANGE = 1.2
@@ -22,6 +22,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = Vector3.ZERO
 	
+	if(HEALTH <= 0):
+		animation_tree.set("parameters/StateMachine/conditions/die", is_die())
+	
 	match state_machine.get_current_node():
 		"Idle":
 			look_at(Vector3(target.global_position.x, global_position.y, target.global_position.z), Vector3.UP)
@@ -40,11 +43,15 @@ func _physics_process(delta: float) -> void:
 	animation_tree.set("parameters/StateMachine/conditions/walk", chase_player() and !attack_player())
 	animation_tree.set("parameters/StateMachine/conditions/idle", !chase_player() and !attack_player())
 	animation_tree.set("parameters/StateMachine/conditions/attack", attack_player())
+
 	
 	move_and_slide()
 
 func chase_player():
 	return global_position.distance_to(target.global_position) < CHASE_RANGE
+	
+func is_die():
+	return HEALTH <= 0
 	
 func attack_player():
 	return global_position.distance_to(target.global_position) < ATTACK_RANGE
