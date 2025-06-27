@@ -122,8 +122,8 @@ func _setup_animation_blends() -> void:
 			if from_anim != to_anim:
 				animation_player.set_blend_time(from_anim, to_anim, 0.2)
 
-func _on_damage_attack_body_entered(body: Enemy) -> void:
-	if(body.is_in_group("enemy")):
+func _on_damage_attack_body_entered(body: Node3D) -> void:
+	if(body.is_in_group("enemy") or body.is_in_group("spike")):
 		var body_collision = (body.global_position - global_position)
 		var force = -body_collision
 		force *= 15.0

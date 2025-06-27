@@ -32,7 +32,6 @@ grow_vertical = 2
 script = ExtResource("1_28flt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.385493, 0.385492, 0.385492, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +44,12 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.535, 1.535)
 texture = ExtResource("2_1ehe0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 477.0
+offset_bottom = 652.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n45e2")
 
 [node name="conteinerNiveis" type="Panel" parent="."]
 layout_mode = 1

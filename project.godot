@@ -48,6 +48,7 @@ folder_colors={
 
 player=""
 enemy=""
+spike=""
 
 [input]
 
