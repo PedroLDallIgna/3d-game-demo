@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cobuwqhnrvf7g"
+path="res://.godot/imported/Iframe _8 Bit Adventure__ Querky Fun Chiptune Game Music by HeatleyBros [Wsw-86zjb8I].mp3-02c545e779ee64eb8def9b53f48dd726.mp3str"
+
+[deps]
+
+source_file="res://resources/Sons/Iframe _8 Bit Adventure__ Querky Fun Chiptune Game Music by HeatleyBros [Wsw-86zjb8I].mp3"
+dest_files=["res://.godot/imported/Iframe _8 Bit Adventure__ Querky Fun Chiptune Game Music by HeatleyBros [Wsw-86zjb8I].mp3-02c545e779ee64eb8def9b53f48dd726.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -29,6 +29,8 @@ var knockbacked: bool = false
 
 @onready var interface_morte: Control = $Interface/telaDerrota
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+var somPassos = preload("res://resources/Sons/Footsteps_Walk_Grass_Mono_23.wav")
 
 func _physics_process(delta: float) -> void:
 	if(velocity == Vector3.ZERO):
@@ -79,16 +81,6 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	blink_timer.connect("timeout", func():
-		eye_mat.set("uv1_offset", Vector3(0.0, 0.5, 0.0))
-		closed_eyes_timer.start(0.2)
-		)
-		
-	closed_eyes_timer.connect("timeout", func():
-		eye_mat.set("uv1_offset", Vector3.ZERO)
-		blink_timer.start(randf_range(1.0, 4.0))
-		)
-		
 func collect_coins(quant: int):
 	coins += quant
 	coin_amount.text = str(coins)
@@ -136,3 +128,7 @@ func _on_damage_attack_body_entered(body: Node3D) -> void:
 			collect_coins(10)
 			await get_tree().create_timer(1.0).timeout
 			body.queue_free()
+			
+func foot_steps():
+	audio_stream_player_3d.stream = somPassos
+	audio_stream_player_3d.play()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8pb733udb6th"]
+[gd_scene load_steps=8 format=3 uid="uid://b8pb733udb6th"]
 
-[ext_resource type="Script" path="res://resources/scripts/main_menu.gd" id="1_28flt"]
-[ext_resource type="Texture2D" uid="uid://dm5c7r1rn2fgu" path="res://resources/Interface/Gemini_Generated_Image_db4m8qdb4m8qdb4m.png" id="2_1ehe0"]
+[ext_resource type="Script" uid="uid://bwewdqdo6yye" path="res://resources/scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://b51pl0hut3qm4" path="res://resources/Interface/Daydream.ttf" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://eigmnmfrsh18" path="res://resources/Interface/FundoDoMenu.png" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://st5h7g3pput5" path="res://resources/Interface/gdbot_and_sophia__3_3__by_tysontan_dfvfs14-fullview_preview_rev_1.png" id="3_n45e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
 content_margin_left = 30.0
@@ -31,27 +32,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -7.99998
-offset_top = -140.0
-offset_right = -72.54
-offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.535, 1.535)
-texture = ExtResource("2_1ehe0")
+texture = ExtResource("2_ce3w2")
+expand_mode = 1
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 477.0
-offset_bottom = 652.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_n45e2")
+offset_left = 637.0
+offset_top = 73.0
+offset_right = 1001.0
+offset_bottom = 759.0
+texture = ExtResource("3_n45e2")
 
 [node name="conteinerNiveis" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -167,7 +167,7 @@ layout_mode = 2
 
 [node name="btnComecar" type="Button" parent="menuContainer/buttonContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.419608, 1, 0.752941, 1)
+theme_override_colors/font_hover_color = Color(0.062257, 0.365423, 0.449705, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
@@ -179,7 +179,7 @@ alignment = 0
 
 [node name="btnEscolher" type="Button" parent="menuContainer/buttonContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.419608, 1, 0.752941, 1)
+theme_override_colors/font_hover_color = Color(0.062257, 0.365423, 0.449705, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
@@ -191,7 +191,7 @@ alignment = 0
 
 [node name="btnSair" type="Button" parent="menuContainer/buttonContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.419608, 1, 0.752941, 1)
+theme_override_colors/font_hover_color = Color(0.062257, 0.365423, 0.449705, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20

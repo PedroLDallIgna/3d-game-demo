@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpbiv4dppoejq"
+path="res://.godot/imported/Iframe _Happy Peaceful Town__ Calm Pretty Game Music by HeatleyBros [BOVROTjeLtI].mp3-b16f82689446b3ed68d42b066ad837c2.mp3str"
+
+[deps]
+
+source_file="res://resources/Sons/Iframe _Happy Peaceful Town__ Calm Pretty Game Music by HeatleyBros [BOVROTjeLtI].mp3"
+dest_files=["res://.godot/imported/Iframe _Happy Peaceful Town__ Calm Pretty Game Music by HeatleyBros [BOVROTjeLtI].mp3-b16f82689446b3ed68d42b066ad837c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

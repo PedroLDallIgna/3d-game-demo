@@ -15,6 +15,9 @@ var target: Player
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+var somPassos = preload("res://resources/Sons/Footsteps_Walk_Grass_Mono_23.wav")
+
 func _ready() -> void:
 	target = Globals.global_player
 	state_machine = animation_tree.get("parameters/StateMachine/playback")
@@ -44,7 +47,6 @@ func _physics_process(delta: float) -> void:
 	animation_tree.set("parameters/StateMachine/conditions/idle", !chase_player() and !attack_player())
 	animation_tree.set("parameters/StateMachine/conditions/attack", attack_player())
 
-	
 	move_and_slide()
 
 func chase_player():
@@ -59,3 +61,7 @@ func attack_player():
 func apply_damage(dano: int):
 	if(attack_player()):
 		target.update_health(dano)
+		
+func foot_steps():
+	audio_stream_player_3d.stream = somPassos
+	audio_stream_player_3d.play()

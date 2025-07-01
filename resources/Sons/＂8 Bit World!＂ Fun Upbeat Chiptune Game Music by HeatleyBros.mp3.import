@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://du7m06fdqtwxu"
+path="res://.godot/imported/＂8 Bit World!＂ Fun Upbeat Chiptune Game Music by HeatleyBros.mp3-1313ea95c9e5dc31d505247ee5567c9d.mp3str"
+
+[deps]
+
+source_file="res://resources/Sons/＂8 Bit World!＂ Fun Upbeat Chiptune Game Music by HeatleyBros.mp3"
+dest_files=["res://.godot/imported/＂8 Bit World!＂ Fun Upbeat Chiptune Game Music by HeatleyBros.mp3-1313ea95c9e5dc31d505247ee5567c9d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

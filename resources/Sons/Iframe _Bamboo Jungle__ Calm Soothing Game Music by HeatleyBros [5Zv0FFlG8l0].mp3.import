@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cq7ccxhoayc71"
+path="res://.godot/imported/Iframe _Bamboo Jungle__ Calm Soothing Game Music by HeatleyBros [5Zv0FFlG8l0].mp3-5d63f4c115745e74a22d239cb563ebc4.mp3str"
+
+[deps]
+
+source_file="res://resources/Sons/Iframe _Bamboo Jungle__ Calm Soothing Game Music by HeatleyBros [5Zv0FFlG8l0].mp3"
+dest_files=["res://.godot/imported/Iframe _Bamboo Jungle__ Calm Soothing Game Music by HeatleyBros [5Zv0FFlG8l0].mp3-5d63f4c115745e74a22d239cb563ebc4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

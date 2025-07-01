@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://motek6yon8c4"]
+[gd_scene load_steps=13 format=3 uid="uid://motek6yon8c4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_dwbse"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://addons/gdquest_sophia/sophia_skin.tscn" id="1_f3sb7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dvcr7twmcc6qv" path="res://Scenes/collision_fall.tscn" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dlm47wj8d4ads" path="res://resources/Models/stones.glb" id="8_ioo17"]
 [ext_resource type="PackedScene" uid="uid://c5p188q150v7x" path="res://Scenes/trap_spike.tscn" id="9_wse8f"]
+[ext_resource type="AudioStream" uid="uid://du7m06fdqtwxu" path="res://resources/Sons/＂8 Bit World!＂ Fun Upbeat Chiptune Game Music by HeatleyBros.mp3" id="10_wse8f"]
 
 [sub_resource type="Environment" id="Environment_aqk2v"]
 background_mode = 2
@@ -116,6 +117,11 @@ transform = Transform3D(1.86813, 0, 0, 0, 1.86813, 0, 0, 0, 1.86813, 16.3569, 3.
 
 [node name="trap-spikes-large2" parent="." instance=ExtResource("9_wse8f")]
 transform = Transform3D(1.79316, 0, 0, 0, 1.79316, 0, 0, 0, 1.79316, 14.9568, 3.3663, 16.5726)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_wse8f")
+volume_db = -18.0
+stream_paused = true
 
 [connection signal="body_entered" from="collisionFall" to="." method="_on_collision_fall_body_entered"]
 
