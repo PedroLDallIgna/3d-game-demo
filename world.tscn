@@ -119,10 +119,12 @@ transform = Transform3D(1.86813, 0, 0, 0, 1.86813, 0, 0, 0, 1.86813, 16.3569, 3.
 transform = Transform3D(1.79316, 0, 0, 0, 1.79316, 0, 0, 0, 1.79316, 14.9568, 3.3663, 16.5726)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("10_wse8f")
 volume_db = -18.0
-stream_paused = true
+autoplay = true
 
 [connection signal="body_entered" from="collisionFall" to="." method="_on_collision_fall_body_entered"]
 
+[editable path="coin"]
 [editable path="collisionFall"]

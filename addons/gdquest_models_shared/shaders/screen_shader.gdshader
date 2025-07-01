@@ -1,7 +1,7 @@
 shader_type spatial;
 
 uniform sampler2D face_texture : filter_nearest, repeat_disable;
-uniform float intensity = 1.5;
+uniform float intensity = 5.0;
 uniform vec4 screen_color : source_color = vec4(1.0);
 
 uniform vec2 screen_red_offset = vec2(0.0);
@@ -35,6 +35,6 @@ void fragment() {
 	
 	vec3 fill = screen_color.rgb * screen_color.a;
 	
-	EMISSION = (iris + fill) * grid * intensity;
+	EMISSION = (iris + fill) * grid * intensity * 3.0;
 	
 }

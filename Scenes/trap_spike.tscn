@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://c5p188q150v7x"]
+[gd_scene load_steps=15 format=4 uid="uid://c5p188q150v7x"]
 
 [ext_resource type="Texture2D" uid="uid://csg1dayjti3dv" path="res://resources/Models/Textures/colormap.png" id="1_4auuw"]
 [ext_resource type="Script" uid="uid://rjws2jh2vgg7" path="res://resources/scripts/trap_spike.gd" id="1_x2db2"]
+[ext_resource type="AudioStream" uid="uid://dtfdpmaolquw7" path="res://resources/Sons/metalSpike.mp3" id="3_1ey2p"]
 
 [sub_resource type="Animation" id="Animation_x2db2"]
 length = 0.001
@@ -217,5 +218,9 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19, 0)
 mesh = SubResource("ArrayMesh_pti8t")
 skeleton = NodePath("")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_1ey2p")
+volume_db = -4.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

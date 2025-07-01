@@ -81,7 +81,8 @@ func _ready():
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-func collect_coins(quant: int):
+func collect_coins(quant: int, player: AudioStreamPlayer3D):
+	player.play()
 	coins += quant
 	coin_amount.text = str(coins)
 	
@@ -125,7 +126,7 @@ func _on_damage_attack_body_entered(body: Node3D) -> void:
 		await get_tree().create_timer(0.3).timeout
 		knockbacked = false
 		if(body.HEALTH <= 0):
-			collect_coins(10)
+			collect_coins(10, audio_stream_player_3d)
 			await get_tree().create_timer(1.0).timeout
 			body.queue_free()
 			

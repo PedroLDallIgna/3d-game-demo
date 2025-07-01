@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://iyv2fnf2u71r"]
+[gd_scene load_steps=9 format=4 uid="uid://iyv2fnf2u71r"]
 
 [ext_resource type="Texture2D" uid="uid://csg1dayjti3dv" path="res://resources/Models/Textures/colormap.png" id="1_2qo34"]
 [ext_resource type="Script" uid="uid://dgqqajfpw2yvc" path="res://Scenes/coinBase.gd" id="1_jgi06"]
+[ext_resource type="AudioStream" uid="uid://bg76tgjf2cyht" path="res://resources/Sons/coinSound.mp3" id="3_g537i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t7if6"]
 resource_name = "colormap"
@@ -68,5 +69,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2qo34")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.22262, 0, 0, 0, 1.22262, 0, 0, 0, 1.22262, 0, -0.0337275, 0)
 shape = SubResource("ConvexPolygonShape3D_2qo34")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("3_g537i")
+volume_db = -2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
