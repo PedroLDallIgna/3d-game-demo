@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8pb733udb6th"]
+[gd_scene load_steps=9 format=3 uid="uid://b8pb733udb6th"]
 
 [ext_resource type="Script" uid="uid://bwewdqdo6yye" path="res://resources/scripts/main_menu.gd" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://b51pl0hut3qm4" path="res://resources/Interface/Daydream.ttf" id="2_48xlc"]
-[ext_resource type="Texture2D" uid="uid://eigmnmfrsh18" path="res://resources/Interface/FundoDoMenu.png" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://7tf7ful0yqnh" path="res://resources/Interface/FundoDoMenuV2.png" id="2_opfnp"]
 [ext_resource type="Texture2D" uid="uid://st5h7g3pput5" path="res://resources/Interface/gdbot_and_sophia__3_3__by_tysontan_dfvfs14-fullview_preview_rev_1.png" id="3_n45e2"]
+[ext_resource type="AudioStream" uid="uid://1y86d27433x2" path="res://resources/Sons/＂Blossom Town!＂ Peaceful Fun Game Music by HeatleyBros.mp3" id="5_n45e2"]
+[ext_resource type="Texture2D" uid="uid://dkd7c1hr3avsa" path="res://resources/Interface/Design_sem_nome-removebg-preview.png" id="6_opfnp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
 content_margin_left = 30.0
@@ -18,10 +20,6 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_1ehe0"]
-font = ExtResource("2_48xlc")
-font_size = 40
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -39,7 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ce3w2")
+texture = ExtResource("2_opfnp")
 expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -51,7 +49,6 @@ offset_bottom = 759.0
 texture = ExtResource("3_n45e2")
 
 [node name="conteinerNiveis" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -75,7 +72,7 @@ grow_vertical = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="btnNivel" type="Button" parent="conteinerNiveis/VBoxContainer"]
+[node name="btnNivel1" type="Button" parent="conteinerNiveis/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.419608, 1, 0.752941, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -151,16 +148,12 @@ horizontal_alignment = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 51.265
-offset_right = 381.265
+offset_left = 51.0
+offset_top = 139.0
+offset_right = 381.0
 grow_vertical = 2
 theme_override_constants/separation = 150
 alignment = 1
-
-[node name="Label" type="Label" parent="menuContainer"]
-layout_mode = 2
-text = "Sophia 64"
-label_settings = SubResource("LabelSettings_1ehe0")
 
 [node name="buttonContainer" type="VBoxContainer" parent="menuContainer"]
 layout_mode = 2
@@ -201,6 +194,23 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ce3w2")
 text = "Sair do Jogo"
 alignment = 0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n45e2")
+volume_db = -8.0
+autoplay = true
+parameters/looping = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 41.0
+offset_right = 365.497
+offset_bottom = 210.0
+texture = ExtResource("6_opfnp")
+expand_mode = 3
+
+[connection signal="pressed" from="conteinerNiveis/VBoxContainer/btnNivel1" to="." method="_on_btn_nivel_1_pressed"]
+[connection signal="pressed" from="conteinerNiveis/VBoxContainer/btnNivel2" to="." method="_on_btn_nivel_2_pressed"]
 [connection signal="pressed" from="menuContainer/buttonContainer/btnComecar" to="." method="_on_btn_comecar_pressed"]
 [connection signal="pressed" from="menuContainer/buttonContainer/btnEscolher" to="." method="_on_btn_escolher_pressed"]
 [connection signal="pressed" from="menuContainer/buttonContainer/btnSair" to="." method="_on_btn_sair_pressed"]

@@ -16,3 +16,11 @@ func _on_btn_escolher_pressed() -> void:
 
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_btn_nivel_1_pressed() -> void:
+	get_tree().change_scene_to_file("res://world.tscn")
+
+
+func _on_btn_nivel_2_pressed() -> void:
+	pass # Replace with function body.

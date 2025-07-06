@@ -2,6 +2,9 @@ extends Node3D
 
 @onready var collision_fall: Area3D = $collisionFall
 
+func _ready() -> void:
+	Globals.current_scene = "level1"
+
 func _on_collision_fall_body_entered(body: Player) -> void:
 	if(body.is_in_group("player")):
 		get_tree().paused = true

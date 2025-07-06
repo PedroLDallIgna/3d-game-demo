@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dtno76e4yj3n3"]
+
+[resource]
+resource_name = "materialTopo"
+cull_mode = 2
+albedo_color = Color(0.632908, 0, 0.0637592, 1)
+texture_filter = 2

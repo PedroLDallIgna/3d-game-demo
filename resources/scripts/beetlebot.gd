@@ -13,6 +13,8 @@ class_name Enemy
 var target: Player
 @onready var navigation_3d: NavigationAgent3D = $Navigation3D
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var collision: CollisionShape3D = $Collision
+
 @onready var state_machine
 
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D

@@ -1,0 +1,179 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbwcx3yhh57vj"]
+
+[ext_resource type="Texture2D" uid="uid://b0idua37vrmsj" path="res://resources/Interface/Captura de tela 2025-06-27 203159.png" id="1_3al15"]
+[ext_resource type="FontFile" uid="uid://b51pl0hut3qm4" path="res://resources/Interface/Daydream.ttf" id="1_k38nj"]
+[ext_resource type="Script" uid="uid://33saky2isop2" path="res://resources/scripts/win_menu.gd" id="1_kdi6k"]
+[ext_resource type="Texture2D" uid="uid://cj2rq3ejbakef" path="res://resources/Interface/moedaGif.gif" id="4_vba5r"]
+[ext_resource type="Texture2D" uid="uid://0qw8mt0sfhnx" path="res://resources/Interface/pixel-heart.gif" id="5_1hjfp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfow7"]
+font = ExtResource("1_k38nj")
+font_size = 50
+font_color = Color(0.25098, 0.615686, 0.403922, 1)
+shadow_size = 10
+shadow_color = Color(0.159236, 0.390625, 0.25627, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k38nj"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_82d2c"]
+font = ExtResource("1_k38nj")
+font_size = 40
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kdi6k")
+
+[node name="Panel" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3al15")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -307.5
+offset_top = 109.315
+offset_right = 307.5
+offset_bottom = 176.315
+grow_horizontal = 2
+text = "Voce venceu !!"
+label_settings = SubResource("LabelSettings_wfow7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -25.0
+offset_right = 134.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btnProximo" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.062257, 0.365423, 0.449705, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_k38nj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_k38nj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k38nj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k38nj")
+text = "Proximo nivel"
+
+[node name="btnMenu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.062257, 0.365423, 0.449705, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_k38nj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_k38nj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k38nj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k38nj")
+text = "Voltar ao inicio"
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -105.0
+offset_right = -135.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_vba5r")
+expand_mode = 1
+
+[node name="labelMoedas" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -82.0
+offset_right = -49.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "120"
+label_settings = SubResource("LabelSettings_82d2c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -102.0
+offset_right = 108.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_1hjfp")
+expand_mode = 1
+
+[node name="labelVidas" type="Label" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 125.0
+offset_top = -80.0
+offset_right = 230.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "120"
+label_settings = SubResource("LabelSettings_82d2c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/btnProximo" to="." method="_on_btn_proximo_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/btnMenu" to="." method="_on_btn_menu_pressed"]

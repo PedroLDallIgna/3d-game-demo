@@ -115,17 +115,19 @@ func _setup_animation_blends() -> void:
 			if from_anim != to_anim:
 				animation_player.set_blend_time(from_anim, to_anim, 0.2)
 
-func _on_damage_attack_body_entered(body: Node3D) -> void:
+func _on_damage_attack_body_entered(body: Enemy) -> void:
 	if(body.is_in_group("enemy") or body.is_in_group("spike")):
 		var body_collision = (body.global_position - global_position)
 		var force = -body_collision
 		force *= 15.0
+		
 		knockback(body_collision, force)
 		body.HEALTH = body.HEALTH - 1
 		knockbacked = true
 		await get_tree().create_timer(0.3).timeout
 		knockbacked = false
 		if(body.HEALTH <= 0):
+			body.collision.queue_free()
 			collect_coins(10, audio_stream_player_3d)
 			await get_tree().create_timer(1.0).timeout
 			body.queue_free()

@@ -17,5 +17,6 @@ func _on_body_entered(body: Player) -> void:
 	
 	if(body.is_in_group("player")):
 		body.collect_coins(value, audio_stream_player_3d)
-		await get_tree().create_timer(0.2).timeout
+		$".".visible = false
+		await get_tree().create_timer(0.5).timeout
 		queue_free()

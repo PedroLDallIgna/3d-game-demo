@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d348sgahimfcc" path="res://resources/Sons/Footsteps_Walk_Grass_Mono_23.wav" id="5_eiibi"]
 [ext_resource type="AnimationLibrary" uid="uid://812ebxlqmeit" path="res://addons/gdquest_beetle_bot/model/custom/custom_lib.res" id="5_y1ouw"]
 
-[sub_resource type="Image" id="Image_rqt26"]
+[sub_resource type="Image" id="Image_eiibi"]
 data = {
 "data": PackedByteArray("////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"),
 "format": "RGB8",
@@ -17,7 +17,7 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_nnt6p"]
 resource_name = "eye_mask"
-image = SubResource("Image_rqt26")
+image = SubResource("Image_eiibi")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7jx5"]
 resource_name = "FaceMat"
@@ -2415,7 +2415,7 @@ bones/16/name = "body"
 bones/16/parent = 0
 bones/16/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0.35)
 bones/16/enabled = true
-bones/16/position = Vector3(0.0158953, -0.02, 0.352115)
+bones/16/position = Vector3(-0.0160276, -0.02, 0.354931)
 bones/16/rotation = Quaternion(0, 0, 0, 1)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "middle_upper_leg.L"
@@ -2423,42 +2423,42 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(-0.000785947, -0.999869, 0.0161719, 0.999869, -0.00052421, 0.0161825, -0.0161719, 0.0161825, 0.999738, -0.0463267, 0.113814, -0.245566)
 bones/17/enabled = true
 bones/17/position = Vector3(-0.0463267, 0.113814, -0.245566)
-bones/17/rotation = Quaternion(0.139812, 0.152674, 0.629141, 0.749216)
+bones/17/rotation = Quaternion(0.162366, 0.173119, 0.618496, 0.749086)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "middle_lower_leg.L"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.999481, 0.00156353, -0.0321615, -0.000527417, 0.999481, 0.0321993, 0.0321952, -0.0321657, 0.998964, 3.17232e-09, 0.277024, 3.37604e-09)
 bones/18/enabled = true
 bones/18/position = Vector3(3.17232e-09, 0.277024, 3.37604e-09)
-bones/18/rotation = Quaternion(-0.596752, -0.0129116, -0.019386, 0.802088)
+bones/18/rotation = Quaternion(-0.66261, -0.0120499, -0.0215254, 0.748558)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "rear_upper_leg.L"
 bones/19/parent = 16
 bones/19/rest = Transform3D(-0.000862122, -0.99985, 0.0173222, 0.99985, -0.000561805, 0.0173345, -0.0173222, 0.0173345, 0.9997, -0.0239784, -0.18, -0.245566)
 bones/19/enabled = true
 bones/19/position = Vector3(-0.0239784, -0.18, -0.245566)
-bones/19/rotation = Quaternion(0.0880731, 0.271808, 0.846818, 0.448624)
+bones/19/rotation = Quaternion(0.0946582, 0.279848, 0.860964, 0.414084)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "rear_lower_leg.L"
 bones/20/parent = 19
 bones/20/rest = Transform3D(0.999406, 0.00171317, -0.0344225, -0.00052605, 0.999406, 0.0344662, 0.0344611, -0.0344276, 0.998813, 7.08678e-09, 0.259085, -2.32831e-09)
 bones/20/enabled = true
 bones/20/position = Vector3(7.08678e-09, 0.259085, -2.32831e-09)
-bones/20/rotation = Quaternion(-0.766362, -0.0110595, -0.0249086, 0.641831)
+bones/20/rotation = Quaternion(-0.801598, -0.0102906, -0.0260539, 0.597207)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "front_upper_leg.L"
 bones/21/parent = 16
 bones/21/rest = Transform3D(-0.000828862, -0.999858, 0.016825, 0.999858, -0.000545548, 0.0168365, -0.0168249, 0.0168366, 0.999717, -0.0239784, 0.285311, -0.245566)
 bones/21/enabled = true
 bones/21/position = Vector3(-0.0239784, 0.285311, -0.245566)
-bones/21/rotation = Quaternion(0.196947, 0.0679983, 0.489977, 0.846469)
+bones/21/rotation = Quaternion(0.215494, 0.0822853, 0.466836, 0.85373)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "front_lower_leg.L"
 bones/22/parent = 21
 bones/22/rest = Transform3D(0.999431, 0.00165991, -0.0337031, -0.000521959, 0.99943, 0.0337448, 0.0337399, -0.033708, 0.998862, 1.40135e-08, 0.266262, 0)
 bones/22/enabled = true
 bones/22/position = Vector3(1.40135e-08, 0.266262, 0)
-bones/22/rotation = Quaternion(-0.616689, -0.0132743, -0.0199478, 0.786842)
+bones/22/rotation = Quaternion(-0.67152, -0.0124935, -0.0217214, 0.740562)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "head"
 bones/23/parent = 16
@@ -2472,42 +2472,42 @@ bones/24/parent = 16
 bones/24/rest = Transform3D(-0.000785947, 0.999869, -0.0161719, -0.999869, -0.00052421, 0.0161825, 0.0161719, 0.0161825, 0.999738, 0.0463267, 0.113814, -0.245566)
 bones/24/enabled = true
 bones/24/position = Vector3(0.0463267, 0.113814, -0.245566)
-bones/24/rotation = Quaternion(0.165502, -0.175496, -0.618073, 0.748195)
+bones/24/rotation = Quaternion(0.136509, -0.150072, -0.629609, 0.749957)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "middle_lower_leg.R"
 bones/25/parent = 24
 bones/25/rest = Transform3D(0.999481, -0.00156353, 0.0321615, 0.000527417, 0.999481, 0.0321993, -0.0321952, -0.0321657, 0.998964, -3.17232e-09, 0.277024, 3.37604e-09)
 bones/25/enabled = true
 bones/25/position = Vector3(-3.17232e-09, 0.277024, 3.37604e-09)
-bones/25/rotation = Quaternion(-0.663162, 0.012042, 0.0215434, 0.748069)
+bones/25/rotation = Quaternion(-0.594732, 0.0129358, 0.0193204, 0.803588)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "rear_upper_leg.R"
 bones/26/parent = 16
 bones/26/rest = Transform3D(-0.000862122, 0.99985, -0.0173222, -0.99985, -0.000561805, 0.0173345, 0.0173222, 0.0173345, 0.9997, 0.0239784, -0.18, -0.245566)
 bones/26/enabled = true
 bones/26/position = Vector3(0.0239784, -0.18, -0.245566)
-bones/26/rotation = Quaternion(0.0970681, -0.284346, -0.859587, 0.413321)
+bones/26/rotation = Quaternion(0.0855146, -0.267493, -0.847829, 0.449801)
 bones/26/scale = Vector3(1, 1, 1)
 bones/27/name = "rear_lower_leg.R"
 bones/27/parent = 26
 bones/27/rest = Transform3D(0.999406, -0.00171317, 0.0344225, 0.00052605, 0.999406, 0.0344662, -0.0344611, -0.0344276, 0.998813, -7.08678e-09, 0.259085, -2.32831e-09)
 bones/27/enabled = true
 bones/27/position = Vector3(-7.08678e-09, 0.259085, -2.32831e-09)
-bones/27/rotation = Quaternion(-0.802742, 0.010264, 0.0260911, 0.595667)
+bones/27/rotation = Quaternion(-0.76472, 0.0110932, 0.0248553, 0.643788)
 bones/27/scale = Vector3(1, 1, 1)
 bones/28/name = "front_upper_leg.R"
 bones/28/parent = 16
 bones/28/rest = Transform3D(-0.000828862, 0.999858, -0.016825, -0.999858, -0.000545548, 0.0168365, 0.0168249, 0.0168366, 0.999717, 0.0239784, 0.285311, -0.245566)
 bones/28/enabled = true
 bones/28/position = Vector3(0.0239784, 0.285311, -0.245566)
-bones/28/rotation = Quaternion(0.213314, -0.0826192, -0.456052, 0.860051)
+bones/28/rotation = Quaternion(0.186543, -0.0640639, -0.480752, 0.854386)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "front_lower_leg.R"
 bones/29/parent = 28
 bones/29/rest = Transform3D(0.999431, -0.00165991, 0.0337031, 0.000521959, 0.99943, 0.0337448, -0.0337399, -0.033708, 0.998862, -1.40135e-08, 0.266262, 0)
 bones/29/enabled = true
 bones/29/position = Vector3(-1.40135e-08, 0.266262, 0)
-bones/29/rotation = Quaternion(-0.660806, 0.0126552, 0.0213749, 0.750145)
+bones/29/rotation = Quaternion(-0.601611, 0.01347, 0.0194601, 0.798439)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/name = "middle_leg_IK.R"
 bones/30/parent = 0
